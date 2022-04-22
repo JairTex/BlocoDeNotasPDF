@@ -7,10 +7,15 @@ package exemploPdf;
 import com.lowagie.text.Document;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
+
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +39,31 @@ public class Exemplo1 {
             Logger.getLogger(Exemplo1.class.getName()).log(Level.SEVERE, null, ex);
         }
         documentoPDF.close();
+    
         
     }
+    public static void abrirArquivoPDF() {
+    	
+    	try {
+    		File arquivoPDF = new File("ExemploPDF.pdf");
+    		
+    		if(arquivoPDF.exists()) {
+    			if(Desktop.isDesktopSupported()) {
+    				Desktop.getDesktop().open(arquivoPDF);
+    			}
+    			else {
+    				JOptionPane.showMessageDialog(null, "Arquivo não suportado", "Erro!", 0);
+    			}
+    		}
+    		else {
+    			JOptionPane.showMessageDialog(null, "Arquivo não criado", "Erro!", 0);
+    		}
+    		
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+    	
+    	
+    }
+    
 }

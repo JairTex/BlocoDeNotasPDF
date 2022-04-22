@@ -54,9 +54,9 @@ public class PrimeiraTela extends JFrame {
 		BlocoTxt.setBounds(27, 58, 490, 204);
 		contentPane.add(BlocoTxt);
 		
-		JLabel lblNewLabel = new JLabel("Gerando PDFs");
+		JLabel lblNewLabel = new JLabel("Broco de Notas PDFs");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		lblNewLabel.setBounds(225, 14, 104, 33);
+		lblNewLabel.setBounds(205, 12, 151, 35);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnGerarPdf = new JButton("Gerar PDF");
@@ -64,11 +64,20 @@ public class PrimeiraTela extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Exemplo1 arquivopdf = new Exemplo1(BlocoTxt.getText());
 				JOptionPane.showInternalMessageDialog(null, "PDF criado com sucesso!", "Alerta", 1);
-				System.exit(0); 
+				//System.exit(0); 
 			}
 		});
-		btnGerarPdf.setBounds(416, 287, 89, 23);
+		btnGerarPdf.setBounds(412, 287, 101, 23);
 		contentPane.add(btnGerarPdf);
+		
+		JButton btnAbrirPdf = new JButton("Abrir Arquivo");
+		btnAbrirPdf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Exemplo1.abrirArquivoPDF();
+			}
+		});
+		btnAbrirPdf.setBounds(301, 287, 101, 23);
+		contentPane.add(btnAbrirPdf);
 		
 	}
 }
